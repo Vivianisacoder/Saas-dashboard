@@ -1,0 +1,51 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+:root {
+  --background: 18 18 18;
+  --primary: 159 117 255;
+  --secondary: 26 26 26;
+  --card-gradient-from: 159 117 255;
+  --card-gradient-to: 159 117 255;
+  --text-primary: 255 255 255;
+  --text-secondary: 161 161 170;
+  --success: 76 175 80;
+  --warning: 255 152 0;
+  --danger: 244 67 54;
+}
+
+body {
+  background-color: rgb(var(--background));
+  color: rgb(var(--text-primary));
+}
+
+@layer components {
+  .card {
+    @apply bg-secondary rounded-xl p-4 shadow-lg border border-white/[0.05];
+  }
+
+  .stats-card {
+    @apply card bg-gradient-to-br from-primary/10 to-primary/5 backdrop-blur-xl;
+  }
+
+  .sidebar-item {
+    @apply flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-white/[0.05] transition-colors;
+  }
+
+  .sidebar-item.active {
+    @apply bg-primary/20 text-primary;
+  }
+
+  .progress-bar {
+    @apply h-2 rounded-full bg-white/[0.05] overflow-hidden;
+  }
+
+  .progress-bar-fill {
+    @apply h-full rounded-full bg-gradient-to-r from-primary/80 to-primary transition-all duration-500;
+  }
+
+  .table-row {
+    @apply border-b border-white/[0.05] hover:bg-white/[0.02] transition-colors;
+  }
+}
