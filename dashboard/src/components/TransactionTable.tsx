@@ -102,7 +102,9 @@ export default function TransactionTable() {
         <StatusBadge status={transaction.status} />
       </div>
       <div className="flex items-center justify-between gap-4 mb-3">
-        <div className="text-text-secondary text-sm">{transaction.date}</div>
+        <div className="text-text-secondary text-sm">
+          {formatDate(transaction.date)}
+        </div>
         <div className="font-bold">{formatCurrency(transaction.amount)}</div>
       </div>
       <div className="flex items-center justify-between">
@@ -219,8 +221,10 @@ export default function TransactionTable() {
                     </Tooltip>
                   </td>
                   <td className="py-4 px-6 text-text-secondary">
-                    <Tooltip content={transaction.date}>
-                      <span className="cursor-help">{transaction.date}</span>
+                    <Tooltip content={formatDate(transaction.date)}>
+                      <span className="cursor-help">
+                        {formatDate(transaction.date)}
+                      </span>
                     </Tooltip>
                   </td>
                   <td className="py-4 px-6">
