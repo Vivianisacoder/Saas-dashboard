@@ -10,8 +10,8 @@ import type { StatsData } from "@/types";
 // This is a Server Component that fetches data on the server
 async function getStats() {
   try {
-    // In production, use full URL
-    const res = await fetch("http://localhost:3000/api/stats", {
+    // Use relative URL which works in both development and production
+    const res = await fetch("/api/stats", {
       cache: "no-store",
     });
     if (!res.ok) throw new Error("Failed to fetch stats");
